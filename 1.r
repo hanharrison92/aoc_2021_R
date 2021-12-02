@@ -28,7 +28,6 @@ depth_window <- function(my_depths){
     for(i in 1:(n-3)) {
         new_window <- my_depths[(i+1):(i+3)]
         diff <- sum(new_window) - sum(old_window)
-        print(new_window)
         if(diff > 0) {#increment counter if next measurement is deeper
             counter <- counter + 1
         }
@@ -37,8 +36,8 @@ depth_window <- function(my_depths){
     return(counter)
 }
 
-curr_dir <- "C:/Hannah_space/Advent_of_code/aoc_2021_R"
-input <- fread(file.path(curr_dir, "1_input.csv"))
+
+input <- fread("1_input.csv")
 test_input <- c(199, 200, 208, 210, 200, 207, 240, 269, 260, 263)
 
 counter_test <- depth_increase(test_input)

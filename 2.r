@@ -1,7 +1,7 @@
-##File name: 1.r
+##File name: 2.r
 ##Author: Hannah Harrison
 ##Last Edit: 03/12/2021
-##Description: day 1, advent of code 2021
+##Description: day 2, advent of code 2021
 
 ##load libraries
 #library(tidyverse) 
@@ -47,8 +47,7 @@ coord_cal_2 <- function(my_instr){
 }
 
 
-curr_dir <- "C:/Hannah_space/Advent_of_code/aoc_2021_R"
-input <- fread(file.path(curr_dir, "2_input.csv"))
+input <- fread("2_input.csv")
 test_input <- data.frame(c("forward", "down", "forward", "up", "down", "forward"))
 test_input$amount <- c(5, 5, 8, 3, 8, 2)
 colnames(test_input) <- c("type", "amount")
