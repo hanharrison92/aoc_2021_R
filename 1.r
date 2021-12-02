@@ -4,8 +4,6 @@
 ##Description: day 1, advent of code 2021
 
 ##load libraries
-#library(tidyverse) 
-#library(dplyr)
 library(data.table)
 
 #define functions
@@ -36,7 +34,7 @@ depth_window <- function(my_depths){
     return(counter)
 }
 
-
+##run code
 input <- fread("1_input.csv")
 test_input <- c(199, 200, 208, 210, 200, 207, 240, 269, 260, 263)
 
