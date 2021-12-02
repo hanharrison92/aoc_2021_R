@@ -4,8 +4,6 @@
 ##Description: day 2, advent of code 2021
 
 ##load libraries
-#library(tidyverse) 
-#library(dplyr)
 library(data.table)
 
 #define functions
@@ -22,7 +20,6 @@ coord_cal <- function(my_instr){
         else if(my_instr$type[i] == "up") {
             my_pos[2] = my_pos[2] - my_instr$amount[i]
         }
-
     }
     return(my_pos)
 }
@@ -41,12 +38,11 @@ coord_cal_2 <- function(my_instr){
         else if(my_instr$type[i] == "up") {
             my_pos[3] = my_pos[3] - my_instr$amount[i]
         }
-
     }
     return(my_pos)
 }
 
-
+##run code
 input <- fread("2_input.csv")
 test_input <- data.frame(c("forward", "down", "forward", "up", "down", "forward"))
 test_input$amount <- c(5, 5, 8, 3, 8, 2)
