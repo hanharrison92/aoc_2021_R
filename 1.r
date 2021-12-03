@@ -42,6 +42,6 @@ test_input <- c(199, 200, 208, 210, 200, 207, 240, 269, 260, 263)
 
 counter_test <- depth_increase(test_input)
 counter_real <- depth_increase(input$V1)
-
+g
 window_test <- depth_window(test_input)
 window_real <- depth_window(input$V1)
