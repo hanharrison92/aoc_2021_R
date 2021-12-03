@@ -7,7 +7,7 @@
 #library(tidyverse) 
 #library(dplyr)
 library(data.table)
-library(compositions) #includes function bin2dec
+library(compositions) #includes function unbinary
 
 #define functions
 get_power <- function(my_binary){
@@ -15,8 +15,8 @@ get_power <- function(my_binary){
     df_split <- data.frame(lapply(df_split, as.numeric))
     vec_meds <- apply(df_split, 2, median)
     vec_not_meds <- bitwNot(vec_meds) + 2
-    gamma_rate <- unbinary(paste(vec_meds, collapse = ""))
-    epsilon_rate <- unbinary(paste(vec_not_meds, collapse = ""))
+    gamma_rate <- compositions::unbinary(paste(vec_meds, collapse = ""))
+    epsilon_rate <- compositions::unbinary(paste(vec_not_meds, collapse = ""))
     return(gamma_rate * epsilon_rate)
 }
 
@@ -33,11 +33,9 @@ get_oxygen <- function(my_binary){
             df_split <- df_split[df_split[ , col_idx] == "0", ]
         }
         col_idx <- col_idx + 1
-        num_rows <- nrow(df_split)
-               
+        num_rows <- nrow(df_split)         
     }
-    
-    oxygen_rate <- unbinary(paste(df_split, collapse = ""))
+    oxygen_rate <- compositions::unbinary(paste(df_split, collapse = ""))
     return(oxygen_rate)
 }
 
@@ -55,10 +53,8 @@ get_co2 <- function(my_binary){
         }
         col_idx <- col_idx + 1
         num_rows <- nrow(df_split)
-        
     }
-
-    co2_rate <- unbinary(paste(df_split, collapse = ""))
+    co2_rate <- compositions::unbinary(paste(df_split, collapse = ""))
     return(co2_rate)
 }
 
