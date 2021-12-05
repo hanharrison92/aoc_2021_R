@@ -8,17 +8,19 @@ library(data.table)
 library(tidyverse)
 
 check_vents <- function(input) {
-    #format dataframe
+    #format corrdinates
     colnames(input) <- c("x1", "middle", "y2")
     df_coords <- input %>%  separate(middle, into = c("y1", "x2"), sep =  "->")
     x1 <- as.numeric(df_coords$x1) + 1
     x2 <- as.numeric(df_coords$x2) + 1
     y1 <- as.numeric(df_coords$y1) + 1
     y2 <- as.numeric(df_coords$y2) + 1
+    #define map
     max_x <- max(c(x1, x2))
     max_y <- max(c(y1, y2))
     dim <- max(max_x, max_y)
     map_vents <- matrix(0, ncol = dim, nrow = dim)
+    #iterate through lines of vents
     for (i in 1:length(x1)) {
         if (x1[i] == x2[i]) {##x is the same
             map_vents[x1[i], y1[i]:y2[i]] <- map_vents[x1[i], y1[i]:y2[i]] + 1
@@ -35,6 +37,7 @@ check_vents <- function(input) {
             }
         }
     }
+    #check for hotspots
     cross_vents <- length(which(map_vents > 1))
     return(cross_vents)
 }
