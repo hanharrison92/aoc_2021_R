@@ -1,7 +1,7 @@
-##File name: 7.r
+##File name: 10.r
 ##Author: Hannah Harrison
 ##Last Edit: 10/12/2021
-##Description: day 7, advent of code 2021
+##Description: day 10, advent of code 2021
 
 ##load libraries
 library(data.table)
